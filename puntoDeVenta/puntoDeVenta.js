@@ -12,6 +12,9 @@ calcularValorTotal = function () {
     let baseImponible;
     let valorTotal;
 
+    //otras varibles locales
+    let resumen;
+
     //1. Recuperar el nombre del producto como String
     nombreProducto=recuperarTexto("txtProducto");
     //2. Recuperar el precio como float
@@ -92,7 +95,8 @@ calcularValorTotal = function () {
             Valor a pagar por 20 cerveza corona con 10% de descuento: USD 48.75
         Si funciona, hacer un commit
     */
-
+   resumen="Valor a pagar por "+cantidad+" "+nombreProducto+" con "+porcentajeDescuento+"% de descuento: USD "+valorTotal;
+   mostrarTexto("lblResumen",resumen);
 }
 limpiar = function () {
     /*
