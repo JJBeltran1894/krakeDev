@@ -69,6 +69,7 @@ calcularValorTotal = function () {
         */
     mostrarTexto("lblValorIVA",valorIVA);
     //11. Invocar a calcularTotal y lo que devuelve guardar en la variable valorTotal
+    valorTotal=calcularTotal(valorSubtotal,valorDescuento,valorIVA);
     //12. Mostrar el resultado en el componente lblTotal
     /*
         Caso de prueba: 
@@ -84,7 +85,7 @@ calcularValorTotal = function () {
 
                 Si el caso de prueba es exitoso, hacer un commit
        */
-            
+    mostrarTexto("lblTotal",valorTotal);        
     //13. Mostrar un resumen en el componente lblResumen, si no existe debe agregarlo
     /*
         Ejemplo: 
