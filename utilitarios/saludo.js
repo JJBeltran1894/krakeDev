@@ -8,7 +8,8 @@ saludar=function(){
     //recupera el valor de la caja de texto estatura
     let estatura=recuperarFloat("txtEstatura");
     let mensajeBienvenida="Bienvenido "+nombre+" "+apellido;
-    mostrarTexto("lblResultado",mensajeBienvenida)
+    mostrarTexto("lblResultado",mensajeBienvenida);
+    mostrarImagen("imgSaludo","imagenes/pandaSaludo.gif");
     
 }
 
@@ -35,3 +36,7 @@ mostrarTexto=function(idComponente,mensaje){
     componente.innerText=mensaje;
 }
 
+mostrarImagen=function(idComponente,rutaImagen){
+    let componente=document.getElementById(idComponente);
+    componente.src=rutaImagen;
+}
