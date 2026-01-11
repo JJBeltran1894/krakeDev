@@ -10,7 +10,7 @@ saludar=function(){
     let mensajeBienvenida="Bienvenido "+nombre+" "+apellido;
     mostrarTexto("lblResultado",mensajeBienvenida);
     mostrarImagen("imgSaludo","imagenes/pandaSaludo.gif");
-    
+    mostrarTextoEnCaja("txtNombre","")
 }
 
 recuperarTexto=function(idComponente){
@@ -39,4 +39,9 @@ mostrarTexto=function(idComponente,mensaje){
 mostrarImagen=function(idComponente,rutaImagen){
     let componente=document.getElementById(idComponente);
     componente.src=rutaImagen;
+}
+
+mostrarTextoEnCaja=function(idComponente,mensaje){
+    let componente=document.getElementById(idComponente);
+    componente.value=mensaje;
 }
