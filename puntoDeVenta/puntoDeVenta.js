@@ -9,6 +9,7 @@ calcularValorTotal = function () {
     let valorSubtotal;
     let valorDescuento;
     let valorIVA;
+    let baseImponible;
     let valorTotal;
 
     //1. Recuperar el nombre del producto como String
@@ -34,9 +35,9 @@ calcularValorTotal = function () {
         Si el caso de prueba es exitoso, hacer un commit
      */
     mostrarTexto("lblSubtotal",valorSubtotal);
-    //6. Invocar a calcularValorDescuento y lo que devuelve guardar en la variable valorDescuento
+    //7. Invocar a calcularValorDescuento y lo que devuelve guardar en la variable valorDescuento
     valorDescuento=calcularValorDescuento(valorSubtotal,porcentajeDescuento)
-    //7. Mostrar el resultado en el componente lblDescuento
+    //8. Mostrar el resultado en el componente lblDescuento
     /*
         Caso de prueba: 
             - cantidad: 10 
@@ -46,9 +47,11 @@ calcularValorTotal = function () {
         Si el caso de prueba es exitoso, hacer un commit
      */
     mostrarTexto("lblDescuento",valorDescuento);
-    //8. Invocar a calcularIVA y lo que devuelve guardar en la variable valorIVA
+    //9. Invocar a calcularIVA y lo que devuelve guardar en la variable valorIVA
     // El IVA debe calcularse sobre el valor del subtotal menos el descuento
-    //9. Mostrar el resultado en el componente lblValorIVA    
+    baseImponible=valorSubtotal-valorDescuento;
+    valorIVA=calcularIVA(baseImponible);
+    //10. Mostrar el resultado en el componente lblValorIVA    
         /*
             Caso de prueba: 
                 - cantidad: 10 
@@ -64,8 +67,9 @@ calcularValorTotal = function () {
 
             Si el caso de prueba es exitoso, hacer un commit
         */
-    //10. Invocar a calcularTotal y lo que devuelve guardar en la variable valorTotal
-    //11. Mostrar el resultado en el componente lblTotal
+    mostrarTexto("lblValorIVA",valorIVA);
+    //11. Invocar a calcularTotal y lo que devuelve guardar en la variable valorTotal
+    //12. Mostrar el resultado en el componente lblTotal
     /*
         Caso de prueba: 
             - cantidad: 10
@@ -81,7 +85,7 @@ calcularValorTotal = function () {
                 Si el caso de prueba es exitoso, hacer un commit
        */
             
-    //12. Mostrar un resumen en el componente lblResumen, si no existe debe agregarlo
+    //13. Mostrar un resumen en el componente lblResumen, si no existe debe agregarlo
     /*
         Ejemplo: 
             Valor a pagar por 20 cerveza corona con 10% de descuento: USD 48.75
