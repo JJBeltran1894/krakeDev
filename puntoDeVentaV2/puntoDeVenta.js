@@ -92,7 +92,7 @@ esPrecioValido = function (precio, componenteError) {
         mostrarTexto(componenteError, "* Campo Obligatorio");
         valido = false;
     }else if(nan){
-        mostrarTexto(componenteError, "Ingrese una cantidad entre 0 y 100");
+        mostrarTexto(componenteError, "Ingrese un precio entre 0 y 50");
         valido = false;
     }else if (precio < 0 || precio > 50) {
         mostrarTexto(componenteError, "Ingrese un precio entre 0 y 50");
