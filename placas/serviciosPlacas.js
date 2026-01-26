@@ -125,3 +125,22 @@ obtenerProvincia=function(placa){
 
     return provincia;
 }
+
+obtenerTipoVehiculo=function(placa){
+    let letraTipo=placa.charAt(1);
+    let tipo="";
+    if(letraTipo=="A" || letraTipo=="Z"){
+        tipo="Comercial";
+    }else if(letraTipo=="E"){
+        tipo="Gubernamental";
+    }else if(letraTipo=="X"){
+        tipo="Uso Oficial";
+    }else if(letraTipo=="S"){
+        tipo="Gobierno Provincial";
+    }else if(letraTipo=="M"){
+        tipo="Municipal";
+    }else{
+        tipo="Particular"
+    }
+    return tipo;
+}
