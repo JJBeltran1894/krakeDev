@@ -6,6 +6,12 @@ validarPlaca=function(){
     if(erroresEstructura==""){
         mostrarTexto("lblValida","Estructura Valida");
         mostrarTexto("lblValidacionEstructura","");
+        provincia=obtenerProvincia(placa);
+        if(provincia==""){
+            mostrarTexto("lblProvincia","Provincia Incorrecta");
+        }else{
+            mostrarTexto("lblProvincia",provincia);
+        }
     }else{
         mostrarTexto("lblValida","Estructura Incorrecta");
         mostrarTexto("lblValidacionEstructura",erroresEstructura);
