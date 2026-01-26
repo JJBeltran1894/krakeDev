@@ -34,3 +34,12 @@ validarPlaca=function(){
         mostrarTexto("lblValidacionEstructura",erroresEstructura);
     }
 }
+
+limpiar=function(){
+    mostrarTextoEnCaja("txtPlaca","");
+    mostrarTexto("lblValida","");
+    mostrarTexto("lblValidacionEstructura","");
+    mostrarTexto("lblProvincia","");
+    mostrarTexto("lblTipo","");
+    mostrarTexto("lblPicoYPlaca","");
+}
