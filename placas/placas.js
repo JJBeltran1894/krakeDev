@@ -3,6 +3,7 @@ validarPlaca=function(){
     let erroresEstructura;
     let provincia;
     let tipo;
+    let diaPyP;
     placa=recuperarTexto("txtPlaca");
     erroresEstructura=validarEstructura(placa);
     if(erroresEstructura==""){
@@ -20,6 +21,13 @@ validarPlaca=function(){
         }else{
             mostrarTexto("lblTipo",tipo);
         }
+        diaPyP=obtenerDiaPicoYPlaca(placa);
+        if(diaPyP==""){
+            mostrarTexto("lblPicoYPlaca","Vehiculo Incorrecto");
+        }else{
+            mostrarTexto("lblPicoYPlaca",diaPyP);
+        }
+
 
     }else{
         mostrarTexto("lblValida","Estructura Incorrecta");

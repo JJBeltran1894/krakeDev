@@ -144,3 +144,25 @@ obtenerTipoVehiculo=function(placa){
     }
     return tipo;
 }
+
+obtenerDiaPicoYPlaca=function(placa){
+    let digitoPyP=placa.charAt(placa.length-1);
+    let diaPyP="";
+    if(digitoPyP=="1" || digitoPyP=="2"){
+        diaPyP="Lunes";
+    }
+    if(digitoPyP=="3" || digitoPyP=="4"){
+        diaPyP="Martes";
+    }
+    if(digitoPyP=="5" || digitoPyP=="6"){
+        diaPyP="Miercoles";
+    }
+    if(digitoPyP=="7" || digitoPyP=="8"){
+        diaPyP="Jueves";
+    }
+    if(digitoPyP=="9" || digitoPyP=="0"){
+        diaPyP="Viernes";
+    }
+    
+    return diaPyP;
+}
