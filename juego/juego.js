@@ -23,10 +23,10 @@ jugar=function(seleccionado){
     }
     if(puntajeUsuario==5){
        mostrarTexto("lblResultadoPartida","Haz Ganado el Juego!");
-       limpiar();
+       
     }else if(puntajeComputador==5){
        mostrarTexto("lblResultadoPartida","El Computador te ha vencido");
-       limpiar();
+       
     }
 
 }
