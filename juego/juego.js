@@ -22,9 +22,11 @@ jugar=function(seleccionado){
         mostrarTexto("lblPuntosUsuario",puntajeUsuario);
     }
     if(puntajeUsuario==5){
-       mostrarTexto("lblResultadoPartida","Haz Ganado el Juego!"); 
+       mostrarTexto("lblResultadoPartida","Haz Ganado el Juego!");
+       limpiar();
     }else if(puntajeComputador==5){
-       mostrarTexto("lblResultadoPartida","El Computador te ha vencido"); 
+       mostrarTexto("lblResultadoPartida","El Computador te ha vencido");
+       limpiar();
     }
 
 }
