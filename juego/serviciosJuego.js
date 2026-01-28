@@ -14,6 +14,7 @@ generarElemento=function(){
     }else if(numero==3){
         elemento="tijera";
     }
+    return elemento
 }
 
 determinarGanador=function(eleccionJuagdor1,eleccionJuagdor2){
