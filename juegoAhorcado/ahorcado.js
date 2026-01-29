@@ -48,3 +48,15 @@ guardarPalabra=function(){
 mostrarLetra=function(letra, posicion){
     mostrarTexto("div"+posicion,letra);
 }
+
+validar=function(letra){
+    let letrasEncontradas;
+    let caracter;
+    for(i=0;i<5;i++){
+        caracter=palabraSecreta.charAt(i);
+        if (caracter==letra){
+            mostrarLetra(letra,i);
+            letrasEncontradas+=1
+        }
+    }
+}
