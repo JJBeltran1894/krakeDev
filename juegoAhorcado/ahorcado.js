@@ -44,3 +44,7 @@ guardarPalabra=function(){
     }
     
 }
+
+mostrarLetra=function(letra, posicion){
+    mostrarTexto("div"+posicion,letra);
+}
