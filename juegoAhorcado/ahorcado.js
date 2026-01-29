@@ -56,7 +56,16 @@ validar=function(letra){
         caracter=palabraSecreta.charAt(i);
         if (caracter==letra){
             mostrarLetra(letra,i);
-            letrasEncontradas+=1
+            letrasEncontradas+=1;
         }
+    }
+}
+
+ingresarLetra=function(){
+    let letra=recuperarTexto("txtLetra")
+    if(esMayuscula(letra)){
+        validar(letra);
+    }else{
+        alert("Solo se aceptan mayusculas");
     }
 }
