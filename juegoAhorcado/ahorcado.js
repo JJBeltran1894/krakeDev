@@ -1,5 +1,8 @@
 // Variables Locales
 let palabraSecreta;
+let intentos=0;
+let coincidencias=0;
+let errores=0;
 
 //Paso 0
 
@@ -50,22 +53,37 @@ mostrarLetra=function(letra, posicion){
 }
 
 validar=function(letra){
-    let letrasEncontradas;
+    let letrasEncontradas=0;
     let caracter;
     for(i=0;i<5;i++){
         caracter=palabraSecreta.charAt(i);
         if (caracter==letra){
             mostrarLetra(letra,i);
-            letrasEncontradas+=1;
+            letrasEncontradas += 1;
         }
+    }
+    if(letrasEncontradas>0){
+        coincidencias += letrasEncontradas;
+        console.log("= "+coincidencias);
+    }else{
+        errores+=1;
+        alert("La letra no es parte de la Palabra")
+        console.log("X "+errores);
     }
 }
 
 ingresarLetra=function(){
+    intentos+=1;
+    console.log("I "+intentos);
     let letra=recuperarTexto("txtLetra")
     if(esMayuscula(letra)){
         validar(letra);
     }else{
         alert("Solo se aceptan mayusculas");
+    }
+    if(coincidencias==5){
+        alert("Ha Ganado!");
+    }else if(intentos==10){
+        alert("Ha Perdido!")
     }
 }
