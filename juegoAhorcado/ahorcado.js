@@ -69,6 +69,7 @@ validar=function(letra){
         errores+=1;
         alert("La letra no es parte de la Palabra")
         console.log("X "+errores);
+        mostrarImagen("ahorcadoImagen","Ahorcado_0"+errores+".png");
     }
 }
 
@@ -86,4 +87,8 @@ ingresarLetra=function(){
     }else if(intentos==10){
         alert("Ha Perdido!")
     }
+}
+
+mostrarAhorcado=function(){
+    mostrarImagen("ahorcadoImagen","Ahorcado_0"+errores+".png");
 }
