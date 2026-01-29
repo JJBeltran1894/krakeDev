@@ -1,4 +1,7 @@
-//Paso 1
+// Variables Locales
+let palabraSecreta;
+
+//Paso 0
 
 esMayuscula=function(caracter){
     let codigo=caracter.charCodeAt();
@@ -9,4 +12,35 @@ esMayuscula=function(caracter){
         esMayusc=false;
     }
     return esMayusc;
+}
+
+//Paso 1
+
+guardarPalabra=function(){
+    let palabra=recuperarTexto("txtSecreta");
+    let caracteresPalabra=palabra.length;
+    let caracter;
+    let error;
+    
+    if(caracteresPalabra==5){
+        for(let i=0;i<caracteresPalabra;i++){
+            caracter=palabra.charAt(i);
+            if(esMayuscula(caracter)){
+                error=false;
+            }else{
+                error=true
+                break;
+                
+            }
+        }
+    }else{
+        error=true;
+    }
+    if(error==false){
+        palabraSecreta=palabra;
+        console.log(palabraSecreta);
+    }else{
+        alert("Ingresar una palabra de 5 letras en mayusculas")
+    }
+    
 }
