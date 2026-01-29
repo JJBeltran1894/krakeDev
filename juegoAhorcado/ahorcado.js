@@ -83,9 +83,11 @@ ingresarLetra=function(){
         alert("Solo se aceptan mayusculas");
     }
     if(coincidencias==5){
-        alert("Ha Ganado!");
+        mostrarImagen("resultadoImagen","ganador.gif")
+        //alert("Ha Ganado!");
     }else if(intentos==10){
-        alert("Ha Perdido!")
+        mostrarImagen("resultadoImagen","gameOver.gif")
+        //alert("Ha Perdido!")
     }
 }
 
