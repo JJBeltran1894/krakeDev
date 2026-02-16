@@ -14,15 +14,6 @@ mostrarOpcionEmpleado=function(){
     ocultarComponente("divResumen");
 }
 
-deshabilitarNuevoForm=function(){
-    deshabilitarComponente("txtCedula");
-    deshabilitarComponente("txtNombre");
-    deshabilitarComponente("txtApellido");
-    deshabilitarComponente("txtSueldo");
-    deshabilitarComponente("btnGuardar");
-    habilitarComponente("btnNuevo");
-}
-
 mostrarOpcionRol=function(){
     mostrarComponente("divRol");
     ocultarComponente("divEmpleado");
@@ -34,6 +25,15 @@ mostrarOpcionResumen=function(){
     ocultarComponente("divRol");
     ocultarComponente("divEmpleado");
     
+}
+
+deshabilitarNuevoForm=function(){
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente("txtNombre");
+    deshabilitarComponente("txtApellido");
+    deshabilitarComponente("txtSueldo");
+    deshabilitarComponente("btnGuardar");
+    habilitarComponente("btnNuevo");
 }
 
 mostrarEmpleados=function(){
@@ -179,10 +179,52 @@ guardar=function(){
                 empleado.apellido=apellido;
                 empleado.sueldo=sueldo;
                 agregarEmpleado(empleado);
+                esNuevo=false;
+            }else{
+                empleadoModificar=buscarEmpleado(cedula);
+                empleadoModificar.nombre=nombre;
+                empleadoModificar.apellido=apellido;
+                empleadoModificar.sueldo=sueldo;
+                alert("Empleado modificado exitosamente");
+                mostrarEmpleados();
             }
+
         }
             deshabilitarNuevoForm();
+            
     }
-    
+}
 
+ejecutarBusqueda=function(){
+    let cedula=recuperarTexto("txtBusquedaCedula");
+    empleado=buscarEmpleado(cedula);
+    if(empleado==null){
+        alert("El empleado no existe");
+    }else{
+        mostrarTextoEnCaja("txtCedula",empleado.cedula);
+        mostrarTextoEnCaja("txtNombre",empleado.nombre);
+        mostrarTextoEnCaja("txtApellido",empleado.apellido);
+        mostrarTextoEnCaja("txtSueldo",empleado.sueldo);
+        habilitarComponente("txtNombre");
+        habilitarComponente("txtApellido");
+        habilitarComponente("txtSueldo");
+        habilitarComponente("btnGuardar");
+    }
+
+
+}
+
+limpiar=function(){
+    esNuevo=false;
+    mostrarTexto
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente("txtNombre");
+    deshabilitarComponente("txtApellido");
+    deshabilitarComponente("txtSueldo");
+    deshabilitarComponente("btnGuardar");
+    mostrarTexto("txtCedula","");
+    mostrarTexto("txtNombre","");
+    mostrarTexto("txtApellido","");
+    mostrarTexto("txtSueldo","");
+    
 }
