@@ -4,6 +4,8 @@ let empleados = [
     {cedula:"0514731720",nombre:"Damian",apellido:"Aguilar",sueldo:750.0}
 ]
 
+let roles=[];
+
 let esNuevo=false;
 
 mostrarOpcionEmpleado=function(){
@@ -18,6 +20,8 @@ mostrarOpcionRol=function(){
     mostrarComponente("divRol");
     ocultarComponente("divEmpleado");
     ocultarComponente("divResumen");
+    deshabilitarComponente("btnGuardarRol");
+    
 }
 
 mostrarOpcionResumen=function(){
@@ -232,7 +236,7 @@ limpiar=function(){
 buscarPorRol=function(){
     
     let cedula=recuperarTexto("txtBusquedaCedulaRol");
-    empleado=buscarEmpleado(cedula);
+    let empleado=buscarEmpleado(cedula);
     if(empleado==null){
         alert("El empleado no existe");
     }else{
@@ -260,4 +264,50 @@ calcularRol=function(){
     aPagar=calcularValorAPagar(sueldo,aportePersonal,descuentos);
     mostrarTexto("infoIESS",aportePersonal);
     mostrarTexto("infoPago",aPagar);
+    habilitarComponente("btnGuardarRol");
+}
+
+buscarRol=function(cedula){
+    let rol=null;
+
+    for(i=0;i<roles.length;i++){
+        elementoRol=roles[i];
+        if(elementoRol.cedula==cedula){
+            rol=elementoRol;
+            break;
+        }
+    }
+    return rol;
+}
+
+agregarRol=function(rol){
+    let resultado=buscarRol(rol.cedula);
+    if(resultado==null){
+        roles.push(rol);
+        alert("Se ha creado el rol de pagos de "+rol.nombre);
+    }else{
+        alert("Ya existe el rol de pagos del empleado con CI: "+rol.cedula);
+    }
+}
+
+calculaAporteEmpleador=function(sueldo){
+    let aportePatronal=sueldo*0.1115;
+    return aportePatronal;
+}
+
+guardarRol=function(){
+    aporteEmpleado=recuperarTextoDiv("infoIESS");
+    aPagar=recuperarTextoDiv("infoPago");
+    cedula=recuperarTextoDiv("infoCedula");
+    nombre=recuperarTextoDiv("infoNombre");
+    sueldo=recuperarFloatDiv("infoSueldo");
+    let rol=[];
+    rol.cedula=cedula;
+    rol.nombre=nombre;
+    rol.sueldo=sueldo;
+    rol.valorAPagar=aPagar;
+    rol.aporteEmpleado=aporteEmpleado;
+    let aporteEmpleador=calculaAporteEmpleador(sueldo);
+    rol.aporteEmpleador=aporteEmpleador;
+    agregarRol(rol);
 }
