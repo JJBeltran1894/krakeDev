@@ -28,6 +28,7 @@ mostrarOpcionResumen=function(){
     mostrarComponente("divResumen");
     ocultarComponente("divRol");
     ocultarComponente("divEmpleado");
+    mostrarRoles();
     
 }
 
@@ -296,8 +297,8 @@ calculaAporteEmpleador=function(sueldo){
 }
 
 guardarRol=function(){
-    aporteEmpleado=recuperarTextoDiv("infoIESS");
-    aPagar=recuperarTextoDiv("infoPago");
+    aporteEmpleado=recuperarFloatDiv("infoIESS");
+    aPagar=recuperarFloatDiv("infoPago");
     cedula=recuperarTextoDiv("infoCedula");
     nombre=recuperarTextoDiv("infoNombre");
     sueldo=recuperarFloatDiv("infoSueldo");
@@ -310,4 +311,57 @@ guardarRol=function(){
     let aporteEmpleador=calculaAporteEmpleador(sueldo);
     rol.aporteEmpleador=aporteEmpleador;
     agregarRol(rol);
+    mostrarTexto("infoCedula","");
+    mostrarTexto("infoNombre","");
+    mostrarTexto("infoSueldo","0.00");
+    mostrarTextoEnCaja("txtDescuentos","0.00");
+    mostrarTexto("infoIESS","0.00");
+    mostrarTexto("infoPago","0.00");
+    
+}
+
+mostrarRoles=function(){
+    let cmpTabla=document.getElementById("tablaResumen");
+    let contenidoTabla="<table><tr>"+
+    "<th>CEDULA</th>"+
+    "<th>NOMBRE</th>"+
+    "<th>VALOR A PAGAR</th>"+
+    "<th>APORTE EMPLEADO</th>"+
+    "<th>APORTE EMPLEADOR</th>"+
+    "</tr>";
+    let elementoRol;
+    for(let i=0;i<roles.length;i++){
+        elementoRol=roles[i];
+        contenidoTabla+=
+        "<tr><td>"+elementoRol.cedula+"</td>"
+        +"<td>"+elementoRol.nombre+"</td>"
+        +"<td>"+elementoRol.valorAPagar+"</td>"
+        +"<td>"+elementoRol.aporteEmpleado+"</td>"
+        +"<td>"+elementoRol.aporteEmpleador+"</td>"
+        +"</tr>"
+    }
+    contenidoTabla+="</table>"
+    cmpTabla.innerHTML=contenidoTabla;
+    mostrarTotales();
+}
+
+mostrarTotales=function(){
+    let totalEmpleado=0;
+    let totalEmpleador=0;
+    let totalAPagar=0;
+    let rol=[];
+
+    for(i=0;i<roles.length;i++){
+        rol=roles[i];
+        totalEmpleado+=rol.aporteEmpleado;
+        totalEmpleador+=rol.aporteEmpleador;
+        totalAPagar+=rol.valorAPagar;
+    }
+    let totalNomina=totalEmpleado+totalEmpleador+totalAPagar;
+
+    mostrarTexto("infoTotalPago",totalAPagar);
+    mostrarTexto("infoAporteEmpresa",totalEmpleador);
+    mostrarTexto("infoAporteEmpleado",aporteEmpleado);
+    mostrarTexto("infoTotalNomina",totalNomina);
+
 }
