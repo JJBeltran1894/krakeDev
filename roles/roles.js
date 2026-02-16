@@ -228,3 +228,17 @@ limpiar=function(){
     mostrarTexto("txtSueldo","");
     
 }
+
+buscarPorRol=function(){
+    
+    let cedula=recuperarTexto("txtBusquedaCedulaRol");
+    empleado=buscarEmpleado(cedula);
+    if(empleado==null){
+        alert("El empleado no existe");
+    }else{
+        mostrarTexto("infoCedula",empleado.cedula);
+        mostrarTexto("infoNombre",empleado.nombre+" "+empleado.apellido);
+        mostrarTexto("infoSueldo",empleado.sueldo);
+    
+    }
+}
