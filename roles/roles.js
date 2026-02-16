@@ -242,3 +242,22 @@ buscarPorRol=function(){
     
     }
 }
+
+calcularAporteEmpleado=function(sueldo){
+    let aportePersonal=sueldo*0.0945;
+    return aportePersonal;
+}
+
+calcularValorAPagar=function(sueldo,aporteIESS,descuento){
+    let aPagar=sueldo-aporteIESS-descuento;
+    return aPagar;
+}
+
+calcularRol=function(){
+    sueldo=recuperarFloatDiv("infoSueldo");
+    descuentos=recuperarFloat("txtDescuentos");
+    aportePersonal=calcularAporteEmpleado(sueldo);
+    aPagar=calcularValorAPagar(sueldo,aportePersonal,descuentos);
+    mostrarTexto("infoIESS",aportePersonal);
+    mostrarTexto("infoPago",aPagar);
+}
