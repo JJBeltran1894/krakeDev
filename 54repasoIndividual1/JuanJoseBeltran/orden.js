@@ -68,7 +68,26 @@ encontrarMayor=function(){
     return personaMayor;
 }
 
+encontrarMenor=function(){
+    let personaMenor=personas[0];
+    let elementoPersona=[];
+
+    for(i=1;i<personas.length;i++){
+        elementoPersona=personas[i];
+        console.log(elementoPersona.nombre+" edad: "+elementoPersona.edad);
+        if(elementoPersona.edad<personaMenor.edad){
+            personaMenor=elementoPersona;
+        }
+    }
+    return personaMenor;
+}
+
 determinarMayor=function(){
     let mayor=encontrarMayor();
     mostrarTexto("resultado","La persona mayor es: "+mayor.nombre+" edad "+mayor.edad);
+}
+
+determinarMenor=function(){
+    let menor=encontrarMenor();
+    mostrarTexto("resultado","La persona menor es: "+menor.nombre+" edad "+menor.edad);
 }
