@@ -1,9 +1,9 @@
 let personas = [
-    {nombre:"Marcos",edad:"18"},
-    {nombre:"Roberto",edad:"15"},
-    {nombre:"Kate",edad:"25"},
-    {nombre:"Diana",edad:"12"},
-    {nombre:"Benja",edad:"5"},
+    {nombre:"Marcos",edad:18},
+    {nombre:"Roberto",edad:15},
+    {nombre:"Kate",edad:25},
+    {nombre:"Diana",edad:12},
+    {nombre:"Benja",edad:5},
     
 ]
 
@@ -70,5 +70,5 @@ encontrarMayor=function(){
 
 determinarMayor=function(){
     let mayor=encontrarMayor();
-
+    mostrarTexto("resultado","La persona mayor es: "+mayor.nombre+" edad "+mayor.edad);
 }
