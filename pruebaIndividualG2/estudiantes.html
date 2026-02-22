@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="estudiantes.js"></script>
+    <script src="utilitarios.js"></script>
+    <link rel="stylesheet" href="estudiantes.css" />
+</head>
+
+<body onload="mostrarEstudiantes();">
+    <div class="area">
+        <div class="titulo">
+            <P><strong>REGISTRO ESTUDIANTES</strong></P>
+        </div>
+      
+        
+        
+
+    </div>
+    </div>
+    <div id="divEstudiantes">
+        <div class="principal">
+            
+            <div class="area">
+            
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        Nombre Completo
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtNombreCompleto" />
+                        <div class="error" id="lblErrorNombre"></div>
+                    </div>
+                </div>
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        Correo electrónico
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtCorreo" />
+                        <div class="error" id="lblErrorCorreo"></div>
+                    </div>
+                </div>
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        ID
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtId" />
+                        <div class="error" id="lblErrorId"></div>
+                    </div>
+                </div>
+                
+                <div class="botones">
+                    
+                    <div class="contenedorBoton">
+                        <input type="button" value="Guardar" class="estiloBoton" onclick="procesarEstudiante();" />
+                    </div>
+
+                </div>
+                <div id="tablaEstudiantes" class="areaTabla">
+                </div>
+                <div id="resultado" class="textResultado">
+
+                </div>
+
+            </div>
+            <div class="area">
+                <div class="titulo">
+                    <P>Eliminar Estudiante</P>
+                </div>
+                        
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        Ingresa ID que deseas Eliminar
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtIdEliminar" />
+                        <div class="error" id="lblIdEliminar"></div>
+                    </div>
+                </div>
+                <div class="botones">
+                    <div class="contenedorBoton">
+                        <input type="button" value="Eliminar" class="estiloBoton" onclick="eliminarEstudiante();" />
+                    </div>
+                </div>
+
+
+                </div>
+
+            </div>
+            <div class="logoEscuela">
+                <img src="./imagenes/estudiantes.png" width="80%" />
+            </div>
+        </div>
+    </div>
+</body>
