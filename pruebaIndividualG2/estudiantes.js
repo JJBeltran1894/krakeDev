@@ -103,7 +103,7 @@ validarId=function(id,idComponente){
 
             }
             else{
-                mostrarTexto("lblErrorId","Ingrese solo digitos en el ID");
+                mostrarTexto(idComponente,"Ingrese solo digitos en el ID");
                 error=true;
                 break;
             }
@@ -194,6 +194,7 @@ eliminarEstudiante=function(){
                 estudiantes.splice(i,1);
                 mostrarEstudiantes();
                 alert("Estudiante eliminado correctamente");
+                mostrarTextoEnCaja("txtIdEliminar","");
             }else{
                 alert("No se encontro estudiante con la ID ingresada")
             }
